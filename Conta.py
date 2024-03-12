@@ -1,7 +1,16 @@
 import random
+
+from BaseModel import BaseModel
+from Usuario import Usuario
+import peewee
+
 # comentario
-class Conta:
-  
+class Conta(BaseModel):
+  numero = peewee.BigIntegerField(primary_key=True)
+  tipo = peewee.CharField(null=False)
+  usuario = peewee.ForeignKeyField(Usuario, backref="contas")
+  saldo = peewee.FloatField(null=False)
+   
   def __init__(self, tipo, usuario, saldo = 0.0):
     self.tipo = tipo
     self.usuario = usuario
