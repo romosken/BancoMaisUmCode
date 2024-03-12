@@ -4,6 +4,7 @@ from BaseModel import BaseModel
 from Usuario import Usuario
 import peewee
 
+# comentario
 class Conta(BaseModel):
   numero = peewee.BigIntegerField(primary_key=True)
   tipo = peewee.CharField(null=False)
